@@ -1,0 +1,72 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "@fontsource-variable/ibm-plex-sans";
+@import "@fontsource-variable/public-sans";
+
+/* @custom-variant dark (&:is(.dark *)); */
+
+/* @custom-variant dark (&:is(.dark *)); */
+@plugin "daisyui";
+@plugin "daisyui/theme" {
+  name: "devconnect";
+  default: true;
+  prefersdark: true;
+
+  --color-base-100: #0A0A0A;
+  --color-base-200: #111111;
+  --color-base-300: #181818;
+
+  --color-base-content: #FFFFFF;
+
+  --color-primary: #FFFFFF;
+  --color-primary-content: #0A0A0A;
+
+  --color-secondary: #A1A1AA;
+  --color-secondary-content: #0A0A0A;
+
+  --color-accent: #FFFFFF;
+  --color-accent-content: #0A0A0A;
+
+  --color-neutral: #181818;
+  --color-neutral-content: #FFFFFF;
+
+  --radius-selector: 0.5rem;
+  --radius-field: 0.5rem;
+  --radius-box: 0.75rem;
+}
+
+@theme inline {
+  --animate-meteor: meteor 5s linear infinite;
+  @keyframes meteor {
+  0% {
+    transform: rotate(var(--angle)) translateX(0);
+    opacity: 1;
+    }
+  70% {
+    opacity: 1;
+    }
+  100% {
+    transform: rotate(var(--angle)) translateX(-500px);
+    opacity: 0;
+    }
+  }
+  --animate-marquee: marquee var(--duration) infinite linear;
+  --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite
+;
+  @keyframes marquee {
+  from {
+    transform: translateX(0);
+    }
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+    }
+  }
+  @keyframes marquee-vertical {
+  from {
+    transform: translateY(0);
+    }
+  to {
+    transform: translateY(calc(-100% - var(--gap)));
+    }
+  }}
