@@ -7,7 +7,6 @@ import axios from "axios";
 import userStore from "@/stores/userStore";
 import { BASE_URL } from "@/utils/constants";
 import { upload } from "@imagekit/react";
-import { toast } from "./ui/toast";
 import { Textarea } from "./ui/textarea";
 
 export default function EditProfile({ user }) {

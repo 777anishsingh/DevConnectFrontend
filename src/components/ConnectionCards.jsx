@@ -1,4 +1,4 @@
-import { AnimatedConnections } from "@/components/ui/animated-testimonials";
+import { AnimatedConnections } from "@/components/ui/animated-connections";
 import connectionStore from "@/stores/connectionStore";
 import { BASE_URL } from "@/utils/constants";
 import axios from "axios";

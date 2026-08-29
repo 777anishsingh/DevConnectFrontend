@@ -5,7 +5,6 @@ import { Lens } from "./ui/lens";
 import { motion } from "motion/react";
 import userStore from "@/stores/userStore";
 import EditProfile from "./EditProfile";
-import { Toast } from "./ui/toast";
 import NotLoggedIn from "./NotLoggedIn";
 
 const Profile = () => {
