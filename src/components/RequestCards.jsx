@@ -3,10 +3,14 @@ import { BASE_URL } from "@/utils/constants";
 import axios from "axios";
 import { useEffect } from "react";
 import { AnimatedRequests } from "./ui/animated-requests";
+import userStore from "@/stores/userStore";
+import NotLoggedIn from "./NotLoggedIn";
 
 export default function RequestCards() {
 
     const { requests, setRequests } = requestStore();
+    const user = userStore(state => state.user)
+
     const fetchRequests = async () => {
         try {
             const res = await axios.get(BASE_URL + "/user/requests/received", { withCredentials: true });
@@ -23,10 +27,27 @@ export default function RequestCards() {
     }
 
     useEffect(() => {
-        fetchRequests();
-    }, [])
+        if (user) {
+            fetchRequests();
+        }
+    }, [user])
 
-    if (!requests) return;
+    if (!requests) {
+        if (!user) {
+            return (
+                <NotLoggedIn />
+            )
+            console.log("3");
+        } else {
+            return (
+                <div >
+                    <div className='font-semibold text-5xl mask-t-from-neutral-100 text-center'>
+                        Loading...
+                    </div>
+                </div>
+            )
+        }
+    };
 
     if (requests.length === 0) {
         return (

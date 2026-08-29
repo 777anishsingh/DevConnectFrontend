@@ -1,17 +1,8 @@
 import React from 'react'
 import RequestCards from './RequestCards'
-import userStore from '@/stores/userStore'
-import NotLoggedIn from './NotLoggedIn'
+
 
 const Requests = () => {
-    const user = userStore(state => state.user)
-
-    if (!user) {
-        return (
-            <NotLoggedIn />
-
-        )
-    }
     return (
         <div>
             <div>

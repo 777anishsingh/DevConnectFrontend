@@ -27,6 +27,13 @@ const EditPassword = () => {
     const [error, setError] = useState("")
     const user = userStore(state => state.user)
 
+    if (!user) {
+        return (
+            <NotLoggedIn />
+        )
+    }
+
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -56,16 +63,6 @@ const EditPassword = () => {
             console.log("FULL ERROR:", err);
         }
     }
-
-    if (!user) {
-        return (
-            <NotLoggedIn />
-
-        )
-    }
-
-
-
 
     return (
         <>

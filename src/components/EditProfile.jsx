@@ -21,7 +21,6 @@ export default function EditProfile({ user }) {
     const [error, setError] = useState("")
     const [gender, setGender] = useState(user?.gender)
 
-
     const uploadImage = async () => {
 
         const authResponse = await axios.get(

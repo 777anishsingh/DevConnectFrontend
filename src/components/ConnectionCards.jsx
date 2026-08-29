@@ -1,12 +1,15 @@
 import { AnimatedConnections } from "@/components/ui/animated-connections";
 import connectionStore from "@/stores/connectionStore";
+import userStore from "@/stores/userStore";
 import { BASE_URL } from "@/utils/constants";
 import axios from "axios";
 import { useEffect } from "react";
+import NotLoggedIn from "./NotLoggedIn";
 
 export default function ConnectionCards() {
 
   const { connections, setConnections } = connectionStore();
+  const user = userStore(state => state.user)
   const fetchConnections = async () => {
     try {
       const res = await axios.get(BASE_URL + "/user/connections", { withCredentials: true });
@@ -18,10 +21,27 @@ export default function ConnectionCards() {
   }
 
   useEffect(() => {
-    fetchConnections();
-  }, [])
+    if (user) {
+      fetchConnections();
+    }
+  }, [user])
 
-  if (!connections) return;
+  if (!connections) {
+    if (!user) {
+      return (
+        <NotLoggedIn />
+      )
+    }
+    else {
+      return (
+        <div >
+          <div className='font-semibold text-5xl mask-t-from-neutral-100 text-center'>
+            Loading...
+          </div>
+        </div>
+      )
+    }
+  }
 
   if (connections.length === 0) {
     return (

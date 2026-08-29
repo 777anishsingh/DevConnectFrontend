@@ -5,15 +5,6 @@ import NotLoggedIn from './NotLoggedIn'
 
 const Connections = () => {
 
-    const user = userStore(state => state.user)
-
-    if (!user) {
-        return (
-            <NotLoggedIn />
-
-        )
-    }
-
     return (
         <div>
             <div>

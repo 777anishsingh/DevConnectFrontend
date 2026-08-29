@@ -10,12 +10,7 @@ import NotLoggedIn from './NotLoggedIn';
 const Feed = () => {
   const user = userStore(state => state.user)
 
-  if (!user) {
-    return (
-      <NotLoggedIn />
 
-    )
-  }
   const { setFeed, feed } = feedStore()
   const getFeed = async () => {
     if (feed != null) return;
@@ -32,17 +27,27 @@ const Feed = () => {
   }
 
   useEffect(() => {
-    getFeed();
-  }, [])
+    if (user) {
+      getFeed();
+    }
+  }, [user])
+
 
   if (feed === null) {
-    return (
-      <div >
-        <div className='font-semibold text-5xl mask-t-from-neutral-100 text-center'>
-          Loading...
+    if (!user) {
+      return (
+        <NotLoggedIn />
+      )
+    }
+    else {
+      return (
+        <div >
+          <div className='font-semibold text-5xl mask-t-from-neutral-100 text-center'>
+            Loading...
+          </div>
         </div>
-      </div>
-    )
+      )
+    }
   }
 
   if (feed.length === 0) {

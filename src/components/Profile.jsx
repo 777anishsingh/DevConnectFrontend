@@ -11,12 +11,6 @@ const Profile = () => {
 
   const user = userStore(state => state.user)
 
-  if (!user) {
-    return (
-      <NotLoggedIn />
-
-    )
-  }
   const {
     firstName,
     lastName,
