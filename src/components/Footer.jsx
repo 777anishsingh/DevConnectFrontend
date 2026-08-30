@@ -10,7 +10,7 @@ const Footer = () => {
                     <p>Copyright © {new Date().getFullYear()} - All right reserved</p>
                 </aside>
                 <nav className="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
-                    <a>
+                    <a href="https://github.com/777anishsingh">
                         <img
                             src="https://img.favpng.com/19/25/9/scalable-vector-graphics-github-computer-icons-logo-computer-file-png-favpng-GRYRADbE9437SkThu9hB2QtbQ.jpg"
                             width="30"
@@ -19,7 +19,7 @@ const Footer = () => {
                             className="fill-current cursor-pointer rounded-full">
                         </img>
                     </a>
-                    <a>
+                    <a href="https://www.linkedin.com/in/777anishsingh/">
                         <img
                             src="https://images.rawpixel.com/image_png_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdjk4Mi1kMy0xMC5wbmc.png"
                             width="30"
