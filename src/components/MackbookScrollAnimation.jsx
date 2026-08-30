@@ -3,7 +3,7 @@ import { MacbookScroll } from "@/components/ui/macbook-scroll";
 
 export function MacbookScrollAnimation() {
     return (
-        <div className="w-full h-350 -mt-70 overflow-hidden bg-[#0A0A0A]">
+        <div className="w-full h-350 -mt-80 -pb-80 overflow-clip bg-[#0A0A0A]">
             <MacbookScroll
                 title={
                     <span>

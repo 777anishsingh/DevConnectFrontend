@@ -21,6 +21,13 @@ export default function EditProfile({ user }) {
     const [error, setError] = useState("")
     const [gender, setGender] = useState(user?.gender)
 
+
+    if (!user) {
+        return (
+            <NotLoggedIn />
+        )
+    }
+
     const uploadImage = async () => {
 
         const authResponse = await axios.get(

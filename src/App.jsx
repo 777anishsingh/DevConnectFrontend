@@ -7,6 +7,7 @@ import Connections from "./components/Connections"
 import Requests from "./components/Requests"
 import EditPassword from "./components/EditPassword"
 import { Hero } from "./components/Hero"
+import NotFound from "./components/NotFound"
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
             <Route path="/connections" element={<Connections />} />
             <Route path="/requests" element={<Requests />} />
             <Route path="/password/edit" element={<EditPassword />} />
+            <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
       </BrowserRouter>

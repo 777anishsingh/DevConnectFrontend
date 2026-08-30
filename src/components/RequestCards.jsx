@@ -11,6 +11,12 @@ export default function RequestCards() {
     const { requests, setRequests } = requestStore();
     const user = userStore(state => state.user)
 
+    if (!user) {
+        return (
+            <NotLoggedIn />
+        )
+    }
+
     const fetchRequests = async () => {
         try {
             const res = await axios.get(BASE_URL + "/user/requests/received", { withCredentials: true });
@@ -27,26 +33,17 @@ export default function RequestCards() {
     }
 
     useEffect(() => {
-        if (user) {
             fetchRequests();
-        }
     }, [user])
 
     if (!requests) {
-        if (!user) {
-            return (
-                <NotLoggedIn />
-            )
-            console.log("3");
-        } else {
-            return (
-                <div >
-                    <div className='font-semibold text-5xl mask-t-from-neutral-100 text-center'>
-                        Loading...
-                    </div>
+        return (
+            <div >
+                <div className='font-semibold text-5xl mask-t-from-neutral-100 text-center'>
+                    Loading...
                 </div>
-            )
-        }
+            </div>
+        )
     };
 
     if (requests.length === 0) {

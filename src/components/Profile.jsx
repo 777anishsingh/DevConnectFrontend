@@ -22,6 +22,14 @@ const Profile = () => {
   } = user || {};
   const [hovering, setHovering] = useState(false);
 
+  if (!user) {
+    return (
+      <div>
+        <NotLoggedIn />
+      </div>
+    )
+  }
+
   return (
     user && (
       <>

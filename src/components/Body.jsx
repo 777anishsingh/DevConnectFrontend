@@ -11,7 +11,6 @@ const Body = () => {
     const setUser = userStore(state => state.setUser)
     const user = userStore(state => state.user)
     const fetchUser = async () => {
-        if (user) return;
         try {
             const res = await axios.get(
                 BASE_URL + "/profile/view",
@@ -27,8 +26,10 @@ const Body = () => {
         }
     }
     useEffect(() => {
+        if (user) return;
+
         fetchUser();
-    }, [])
+    }, [user])
 
     return (
         <div className="min-h-screen flex flex-col">

@@ -10,6 +10,13 @@ export default function ConnectionCards() {
 
   const { connections, setConnections } = connectionStore();
   const user = userStore(state => state.user)
+
+  if (!user) {
+    return (
+      <NotLoggedIn />
+    )
+  }
+
   const fetchConnections = async () => {
     try {
       const res = await axios.get(BASE_URL + "/user/connections", { withCredentials: true });
@@ -21,27 +28,19 @@ export default function ConnectionCards() {
   }
 
   useEffect(() => {
-    if (user) {
       fetchConnections();
-    }
   }, [user])
 
+
   if (!connections) {
-    if (!user) {
-      return (
-        <NotLoggedIn />
-      )
-    }
-    else {
-      return (
-        <div >
-          <div className='font-semibold text-5xl mask-t-from-neutral-100 text-center'>
-            Loading...
-          </div>
+    return (
+      <div >
+        <div className='font-semibold text-5xl mask-t-from-neutral-100 text-center'>
+          Loading...
         </div>
-      )
-    }
-  }
+      </div>
+    )
+  };
 
   if (connections.length === 0) {
     return (

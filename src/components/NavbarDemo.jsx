@@ -25,7 +25,7 @@ export default function NavbarDemo({
 
   const handleLogout = async () => {
     try {
-      axios.post(BASE_URL + "/logout", {}, {
+      await axios.post(BASE_URL + "/logout", {}, {
         withCredentials: true,
       })
       removeUser();
