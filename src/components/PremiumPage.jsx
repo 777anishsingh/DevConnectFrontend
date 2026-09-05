@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Check, Sparkles, Zap } from "lucide-react";
 import axios from "axios";
 import { BASE_URL } from "@/utils/constants";
@@ -45,12 +45,25 @@ const plans = [
 ];
 
 export default function PremiumPage() {
+    const [isUserPremium, setIsUserPremium] = useState(false);
     const user = userStore(state => state.user);
     const navigate = useNavigate();
+    useEffect(() => {
+        if (user) {
+            verifyPremiumUser();
+        }
+    }, [])
 
+    const verifyPremiumUser = async () => {
+        const res = await axios.get(BASE_URL + "/payment/verify", {
+            withCredentials: true
+        });
+        if (res.data.isPremium) {
+            setIsUserPremium(true);
+        }
+    }
 
     const handleBuyClick = async (membershipType) => {
-
         try {
             const order = await axios.post(BASE_URL + "/payment/create", {
                 membershipType
@@ -74,6 +87,7 @@ export default function PremiumPage() {
                 theme: {
                     color: '#F37254'
                 },
+                handler: verifyPremiumUser
             };
 
             const rzp = new Razorpay(options);
@@ -84,7 +98,29 @@ export default function PremiumPage() {
     }
 
 
-    return (
+    return isUserPremium ? (
+        <section className="w-full bg-[#0A0A0A] px-6 py-2 text-white">
+            <div className="mx-auto max-w-6xl">
+
+                {/* Heading */}
+                <div className="mx-auto mb-14 max-w-2xl text-center">
+                    <p className="mb-3 text-sm font-medium uppercase tracking-[0.25em] text-neutral-400">
+                        DevConnect Premium
+                    </p>
+
+                    <h2 className="text-4xl font-bold tracking-tight md:text-5xl">
+                        You are Already{" "}
+                        <span className="text-neutral-400">a premium User.</span>
+                    </h2>
+
+                    <p className="mt-5 text-base leading-7 text-neutral-500">
+                        You just unlocked the powerful features designed that helps you connect with
+                        developers, build projects and grow your network.
+                    </p>
+                </div>
+            </div>
+        </section >
+    ) : (
         <section className="w-full bg-[#0A0A0A] px-6 py-2 text-white">
             <div className="mx-auto max-w-6xl">
 
