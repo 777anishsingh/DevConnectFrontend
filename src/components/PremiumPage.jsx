@@ -49,11 +49,11 @@ export default function PremiumPage() {
     const navigate = useNavigate();
 
 
-    const handleBuyClick = async (membershipName) => {
+    const handleBuyClick = async (membershipType) => {
 
         try {
             const order = await axios.post(BASE_URL + "/payment/create", {
-                membershipName
+                membershipType
             }, {
                 withCredentials: true,
             }
@@ -158,8 +158,8 @@ export default function PremiumPage() {
                                             : handleBuyClick(plan.name)
                                     }
                                     className={`mt-8 w-full rounded-xl px-5 py-3 text-sm font-semibold transition-all ${plan.popular
-                                            ? "bg-white text-black transition-colors duration-300 hover:bg-[#d89b00]"
-                                            : "border border-white/10 bg-white/[0.06] text-white transition-colors duration-300 hover:bg-[#3366ff]"
+                                        ? "bg-white text-black transition-colors duration-300 hover:bg-[#d89b00]"
+                                        : "border border-white/10 bg-white/[0.06] text-white transition-colors duration-300 hover:bg-[#3366ff]"
                                         }`}
                                 >
                                     {plan.button}

@@ -134,8 +134,9 @@ export default function NavbarDemo({
                 className="menu text-2xl bg-black menu-sm dropdown-content rounded-box z-1 mt-5 gap-3 w-35 shadow">
                 <li><Link to={"/feed"}>My Feed</Link></li>
                 <li><Link to={"/requests"}>My Requests </Link></li>
-                <li><Link to={"/connections"}>My Connections </Link></li>
+                <li><Link to={"/connections"}>My Connections</Link></li>
                 <li><Link to={"/premium"}>Go Premium</Link></li>
+                <li><Link to={"/profile"}>My Profile</Link></li>
                 <li><Link to={"/password/edit"}>Update Password</Link></li>
                 <li><Link to={"/login"} onClick={handleLogout}>Logout</Link></li>
               </ul>
