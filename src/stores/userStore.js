@@ -15,18 +15,3 @@ const userStore = create(
 );
 
 export default userStore;
-
-// const userStore = create((set) => ({
-//   user: null,
-//   authChecked: false,
-
-//   setUser: (user) => set({
-//     user,
-//     authChecked: true,
-//   }),
-
-//   removeUser: () => set({
-//     user: null,
-//     authChecked: true,
-//   }),
-// }));

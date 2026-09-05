@@ -8,6 +8,7 @@ import Requests from "./components/Requests"
 import EditPassword from "./components/EditPassword"
 import { Hero } from "./components/Hero"
 import NotFound from "./components/NotFound"
+import PremiumPage from "./components/PremiumPage"
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
             <Route path="/connections" element={<Connections />} />
             <Route path="/requests" element={<Requests />} />
             <Route path="/password/edit" element={<EditPassword />} />
+            <Route path="/premium" element={<PremiumPage />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>

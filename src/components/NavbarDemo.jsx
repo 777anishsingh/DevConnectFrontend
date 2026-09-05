@@ -105,10 +105,8 @@ export default function NavbarDemo({
             item="Pricing"
           >
             <div className="flex flex-col space-y-4 text-sm">
-              <HoveredLink href="/hobby">Hobby</HoveredLink>
-              <HoveredLink href="/individual">Individual</HoveredLink>
-              <HoveredLink href="/team">Team</HoveredLink>
-              <HoveredLink href="/enterprise">Enterprise</HoveredLink>
+              <HoveredLink href="/premium">Pro</HoveredLink>
+              <HoveredLink href="/premium">Ultimate</HoveredLink>
             </div>
           </MenuItem>
         </Menu>
@@ -137,7 +135,7 @@ export default function NavbarDemo({
                 <li><Link to={"/feed"}>My Feed</Link></li>
                 <li><Link to={"/requests"}>My Requests </Link></li>
                 <li><Link to={"/connections"}>My Connections </Link></li>
-                <li><Link to={"/profile"}>Update Profile</Link></li>
+                <li><Link to={"/premium"}>Go Premium</Link></li>
                 <li><Link to={"/password/edit"}>Update Password</Link></li>
                 <li><Link to={"/login"} onClick={handleLogout}>Logout</Link></li>
               </ul>
